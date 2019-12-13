@@ -1,7 +1,7 @@
 package com.epam.bohush.task3.service;
 
 import com.epam.bohush.task3.model.Note;
-import com.epam.bohush.task3.repository.jdbc.JdbcNoteRepository;
+import com.epam.bohush.task3.repository.NoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,25 +15,25 @@ import java.util.List;
 @Service
 public class NoteService {
     @Autowired
-    private JdbcNoteRepository jdbcNoteRepository;
+    private NoteRepository noteRepository;
 
     public Note getById(Integer id) {
-        return jdbcNoteRepository.getById(id);
+        return noteRepository.getById(id);
     }
 
     public void create(Note note) {
-        jdbcNoteRepository.create(note);
+        noteRepository.create(note);
     }
 
     public void removeById(Integer id) {
-        jdbcNoteRepository.removeById(id);
+        noteRepository.removeById(id);
     }
 
     public List<Note> getAll(String status) {
-        return jdbcNoteRepository.getAll(status);
+        return noteRepository.getAll(status);
     }
 
     public void complete(Integer noteId) {
-        jdbcNoteRepository.complete(noteId);
+        noteRepository.complete(noteId);
     }
 }
