@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" th:href="${#themes.code('styleSheet')}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" class="txtb" th:placeholder="#{input}" maxlength="30">
+      <div class="notcomp">
+        <h3 data-th-text="#{open}"></h3>
+        <ul id="not-completed-items" class="list-unstyled">
+          <li th:each="notCompletedTask : ${notCompletedList}">
+            <div class="task">
+              <span th:text="${notCompletedTask.description}"></span>
+              <i th:id="${notCompletedTask.id}" class="fas fa-trash-alt"></i>
+              <i th:id="${notCompletedTask.id}" class="fas fa-check"></i>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="comp">
+        <h3 data-th-text="#{completed}"></h3>
+        <ul id="completed-items" class="list-unstyled">
+          <li th:each="completedTask : ${completedList}">
+            <div class="task">
+              <span th:text="${completedTask.description}"></span>
+              <i th:id="${completedTask.id}" class="fas fa-trash-alt"></i>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script th:src="@{resources/js/todolist.js}"></script>
+  </body>
+</html>

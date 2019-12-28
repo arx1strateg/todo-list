@@ -1,5 +1,0 @@
-CREATE TABLE notes (
-  id INTEGER PRIMARY KEY AUTO_INCREMENT,
-  description VARCHAR(100),
-  status VARCHAR(15)
-);
